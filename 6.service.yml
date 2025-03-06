@@ -71,6 +71,7 @@ spec:
     example: service
   clusterIP: None
   ports:
+  - protocol: TCP
     port: 80
     targetPort: 80
 ---
