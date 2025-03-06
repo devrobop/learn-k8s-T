@@ -75,4 +75,25 @@ spec:
     port: 80
     targetPort: 80
 ---
-
+apiVersion: apps/v1
+kind: deployment
+metadata:
+  name: deploy-01
+  labels:
+    appName: nginx
+    type: deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      appName: nginx
+      type: deploy
+  template:
+    metadata:
+      labels:
+        appName: nginx
+        type: deploy
+    spec:
+      containers:
+      - name: nginx
+        image: docker.io/nginx1.24
