@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: frontend
+  namespace: roboshop
 spec:
   type: LoadBalancer
   selector:
@@ -23,22 +24,26 @@ spec:
     image: public.ecr.aws/w8x4g9h7/roboshop-v3/frontend
   env:
   - name: CATALOGUE_HOST
-    value: "catalogue1"
+    value: "catalogue"
   - name: CATALOGUE_PORT
-    value: "catalogue2"
+    value: "8080"
+
   - name: USER_HOST
-    value: "catalogue3"
+    value: "user"
   - name: USER_PORT
-    value: "catalogue4"
+    value: "8080"
+
   - name: CART_HOST
-    value: "catalogue5"
+    value: "cart"
   - name: CART_PORT
-    value: "catalogue6"
+    value: "8080"
+
   - name: SHIPPING_HOST
-    value: "catalogue7"
+    value: "shipping"
   - name: SHIPPING_PORT
-    value: "catalogue8"
+    value: "8080"
+
   - name: PAYMENT_HOST
-    value: "catalogue9"
+    value: "payment"
   - name: PAYMENT_PORT
-    value: "catalogue0"
+    value: "8080"
